@@ -8,16 +8,15 @@ randomCheck=$(($RANDOM%3))
 empPresent=1
 empPartTime=2
 empAbsent=0
-if [ $empPresent == $randomCheck ] 
- then 
+case $randomCheck in
+1)
 	echo " Employee is Present " 
-	let salary=empWagePerHour*empFullTimeWorkHour
-elif [ $empPartTime == $randomCheck ]
-then
+	let salary=empWagePerHour*empFullTimeWorkHour ;;
+2)
 	echo " Employee is PartTime "
-	let salary=empWagePerHour*empParttimePerHour
-else 
+	let salary=empWagePerHour*empParttimePerHour ;;
+*)
 	echo " Employee is Absent "
 	let salary=empWagePerHour*empAbsent
-fi
+esac
 echo " Employee salary is $salary "

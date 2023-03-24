@@ -1,7 +1,7 @@
 #!/bin/bash -x
+echo " Welcome to the employee Wage Computation "
 empWagePerHour=20
 empWorkHour=8
-echo " Welcome to the employee Wage Computation "
 checkEmpPresent(){
 case  $1 in
  1)  echo " Employee is Present " 

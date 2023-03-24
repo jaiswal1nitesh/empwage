@@ -14,3 +14,12 @@ esac
 }
 checkEmpPresent $(($RANDOM%2))
 echo  " Employee Daily Wage $salary"
+randomCheck=$(($RANDOM%2))
+empPresent=1
+empAbsent=0
+if [ $empPresent == $randomCheck ] 
+ then 
+	echo " Employee is Present "
+else 
+	echo " Employee is Absent "
+fi

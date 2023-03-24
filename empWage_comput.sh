@@ -2,21 +2,23 @@
 echo " ------------------>Welcome to the employee Wage Computation<---------------- "
 echo
 empWagePerHour=20
-empFullTimeWorkHour=8
-empParttimePerHour=4
-randomCheck=$(($RANDOM%3))
 empPresent=1
 empPartTime=2
 empAbsent=0
-case $randomCheck in
-1)
-	echo " Employee is Present " 
-	let salary=empWagePerHour*empFullTimeWorkHour ;;
-2)
-	echo " Employee is PartTime "
-	let salary=empWagePerHour*empParttimePerHour ;;
-*)
-	echo " Employee is Absent "
-	let salary=empWagePerHour*empAbsent
-esac
-echo " Employee salary is $salary "
+numDayPerMonth=20
+totalSalary=0
+for ((day=1; day<=$numDayPerMonth; day++))
+do
+  randomCheck=$(($RANDOM%3))
+  case $randomCheck in
+  1)
+	empWorkingHours=8 ;;
+  2) 
+	empWorkingHours=4 ;;
+  *)
+	empWorkingHours=0
+  esac
+	let salary=empWagePerHour*empWorkingHours
+        let totalSalary=totalSalary+salary 
+done
+echo " Employee salary is $totalSalary "
